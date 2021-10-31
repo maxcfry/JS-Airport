@@ -14,7 +14,7 @@ class Airport {
   }
   
   take_off(weather) {
-    if(weather == "stormy"){return "Cannot take off - unsafe weather conditions"}
+    if(weather == "stormy"){throw "Cannot take off - unsafe weather conditions"}
     else{this.planes.pop()};
   }
   
