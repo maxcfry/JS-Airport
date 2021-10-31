@@ -62,6 +62,19 @@ describe('Airport', () => {
   });
 
   it('does not allow plane to take_off when weather is stormy', () => {
-    expect(this.airport.take_off(this.weather.storm())).toBe("Cannot take off - unsafe conditions");
+    this.airport.land(this.plane)
+    expect(this.airport.take_off(this.weather.storm())).toBe("Cannot take off - unsafe weather conditions");
   });
+
+  it('plane can take_off when weather is sunny', () => {
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.take_off(this.weather.sun())
+    expect(this.airport.planes).toHaveLength(1)
+  });
+
+  it('does not allow plane to land when weather is stormy', () => {
+    expect(this.airport.land(this.plane, this.weather.storm())).toBe("Cannot land - unsafe weather conditions");
+  });
+
 });

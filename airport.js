@@ -7,13 +7,14 @@ class Airport {
     this.planes = []
   }
 
-  land(plane) {
+  land(plane, weather) {
     if(this.planes.length == MAX_CAPACITY){return "Airport full!"}
+    else if(weather == "stormy"){return "Cannot land - unsafe weather conditions"}
     else{this.planes.push(plane)};
   }
   
   take_off(weather) {
-    if(weather == "stormy"){return "Cannot take off - unsafe conditions"}
+    if(weather == "stormy"){return "Cannot take off - unsafe weather conditions"}
     else{this.planes.pop()};
   }
   
