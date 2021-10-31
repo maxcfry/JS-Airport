@@ -1,10 +1,7 @@
-// class Weather {
-//   // constructor() {
-//   //   this.forecast = [sunny, stormy]
-//   // }
-//   var forecast = [sunny, stormy];
+class Weather {
+  storm() {
+    return "stormy"
+  };
+};
 
-//   var conditions = _.sample(forecast);
-// }
-
-// module.exports = Weather;
+module.exports = Weather;

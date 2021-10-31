@@ -6,6 +6,7 @@ describe('Airport', () => {
   beforeEach(() => {
     this.airport = new Airport
     this.plane = new Plane
+    this.weather = new Weather
   });
 
   it('plane can land', () => {
@@ -46,8 +47,21 @@ describe('Airport', () => {
     expect(this.airport.max_cap).toBeFalsy
   });
 
-  // it('plane cannot land if capacity is full', () => {
-  //   this.airport(this.limit)
-  //   expect(this.airport.land(this.plane)).toThrowError("Airport Full")
-  // });
+  it('plane cannot land and error thrown if capacity is full', () => {
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    this.airport.land(this.plane)
+    expect(this.airport.land(this.plane)).toBe("Airport full!");
+  });
+
+  it('does not allow plane to take_off when weather is stormy', () => {
+    expect(this.airport.take_off(this.weather.storm())).toBe("Cannot take off - unsafe conditions");
+  });
 });

@@ -10,6 +10,12 @@
 // // toContain
 // // toThrow(Error)
 
+if(this.limit){
+  throw(Error)
+}else{
+  this.planes.push(plane)
+}
+
 1) I need to find a way of setting a max capacity.I
 2) In ruby this would be achieved by writing a boolean method
 such as Max_Capacity (defiend as planes >= 10)
