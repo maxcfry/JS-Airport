@@ -61,11 +61,6 @@ describe('Airport', () => {
     expect(this.airport.land(this.plane)).toBe("Airport full!");
   });
 
-  // it('does not allow plane to take_off when weather is stormy', () => {
-  //   this.airport.land(this.plane)
-  //   expect(this.airport.take_off(this.weather.storm())).toBe("Cannot take off - unsafe weather conditions");
-  // });
-
   it('plane can take_off when weather is sunny', () => {
     this.airport.land(this.plane)
     this.airport.land(this.plane)
